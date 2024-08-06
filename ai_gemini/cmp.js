@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const DEFAULT_SSO_DOMAIN = "https://accounts.cmp.optimizely.com";
+export const AI_FUNCTION = {};
 
 export async function getToken(clientId, clientSecret) {
   const tokenData = {

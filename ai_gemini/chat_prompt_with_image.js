@@ -1,8 +1,10 @@
 import { readFileSync } from 'fs';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import path from 'path';
+import { configDotenv } from "dotenv";
+configDotenv();
 
-export default async function chatStreamingWithImages() {
+export default async function run() {
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
   const chat = model.startChat();
@@ -25,3 +27,7 @@ export default async function chatStreamingWithImages() {
     process.stdout.write(chunkText);
   }
 };
+
+if (import.meta.url.endsWith(process.argv[1])) {
+  run();
+}

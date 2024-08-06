@@ -1,4 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { configDotenv } from "dotenv";
+configDotenv();
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
@@ -32,3 +34,7 @@ export default async function run() {
   result = await chat.sendMessage("How many paws are in my house?");
   console.log(result.response.text());  
 };
+
+if (import.meta.url.endsWith(process.argv[1])) {
+  run();
+}
