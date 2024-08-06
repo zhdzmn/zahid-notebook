@@ -1,0 +1,16 @@
+{
+  "name": "gemini-prompt",
+  "version": "0.0.1",
+  "type": "module",
+  "sourceType": "module",
+  "private": true,
+  "description": "Gemini Prompt 1",
+  "main": "runner.js",
+  "dependencies": {
+    "@google/generative-ai": "0.16.0",
+    "axios": "1.7.3"
+  },
+  "scripts": {
+    "start": "node --env-file=.env runner.js"
+  }
+}
